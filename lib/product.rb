@@ -1,10 +1,12 @@
 class Product
-  attr_reader :title
+  attr_reader :title, :price, :stock
 
   @@products = []
 
   def initialize(options = {})
     @title = options[:title]
+    @price = options[:price]
+    @stock = options[:stock]
     add_to_products
   end
 
@@ -16,6 +18,10 @@ class Product
     @@products.each do |product|
       return product if product.title == title
     end
+  end
+
+  def in_stock?
+    self.stock > 0 ? true : false
   end
 
   private
