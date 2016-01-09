@@ -24,6 +24,14 @@ class Product
     self.stock > 0 ? true : false
   end
 
+  def self.in_stock
+    products_in_stock = []
+    @@products.each do |product|
+      products_in_stock.push(product) if product.in_stock?
+    end
+    return products_in_stock
+  end
+
   private
 
   def add_to_products
