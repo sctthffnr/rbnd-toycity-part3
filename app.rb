@@ -11,13 +11,13 @@ Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0)
 
 Product.all.count # Should return 3
 
-Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
+#Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
 # Should return DuplicateProductError: 'LEGO Iron Man vs. Ultron' already exists.
 
-# nanoblock = Product.find_by_title("Nano Block Empire State Building")
+nanoblock = Product.find_by_title("Nano Block Empire State Building")
 # firehouse = Product.find_by_title("LEGO Firehouse Headquarter")
 
-# nanoblock.title # Should return 'Nano Block Empire State Building'
+nanoblock.title # Should return 'Nano Block Empire State Building'
 # nanoblock.price # Should return 49.99
 # nanoblock.stock # Should return 12
 # nanoblock.in_stock? # Should return true
