@@ -32,6 +32,10 @@ class Product
     return products_in_stock
   end
 
+  def decrement_stock_by_one
+    @stock -= 1
+  end
+
   private
 
   def add_to_products
