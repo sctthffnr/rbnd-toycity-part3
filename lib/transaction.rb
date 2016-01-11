@@ -12,6 +12,14 @@ class Transaction
     add_to_transactions
   end
 
+  def self.all
+    @@transactions
+  end
+
+  def self.find(id)
+    @@transactions[id - 1]
+  end
+
   private
 
   def add_to_transactions

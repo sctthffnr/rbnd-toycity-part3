@@ -18,6 +18,11 @@ class Customer
     end
   end
 
+  def purchase(product)
+    raise OutOfStockError, "'#{product.title}' is out of stock." if product.stock == 0
+    transaction = Transaction.new(self, product)
+  end
+
   private
 
   def add_to_customers
