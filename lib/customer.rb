@@ -5,6 +5,7 @@ class Customer
 
   def initialize(options = {})
     @name = options[:name]
+    @products_purchased = []
     add_to_customers
   end
 
@@ -20,7 +21,16 @@ class Customer
 
   def purchase(product)
     raise OutOfStockError, "'#{product.title}' is out of stock." if product.stock == 0
-    transaction = Transaction.new(self, product)
+    transaction = Transaction.new(self, product, "purchase")
+    @products_purchased.push(product.title)
+  end
+
+  def return(product)
+    raise NotProductOwnerError, "#{@name} does not own #{product.title}" unless @products_purchased.include?(product.title)
+    transaction = Transaction.new(self, product, "return")
+    # I needed to just delete the first item in the array that matched a product title, and I got the solution
+    # from http://stackoverflow.com/questions/17903351/delete-one-array-element-by-value-in-ruby
+    @products_purchased.delete_at(@products_purchased.find_index(product.title))
   end
 
   private

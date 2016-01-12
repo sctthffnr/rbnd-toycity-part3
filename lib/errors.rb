@@ -6,3 +6,9 @@ end
 
 class OutOfStockError < StandardError
 end
+
+class TransactionTypeError < StandardError
+end
+
+class NotProductOwnerError < StandardError
+end
