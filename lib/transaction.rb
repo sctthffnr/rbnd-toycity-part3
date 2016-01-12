@@ -4,10 +4,9 @@ class Transaction
   @@transactions = []
   @@id = 1
 
-  def initialize(customer, product, type)
+  def initialize(customer, product)
     @customer = customer
     @product = product
-    type_of_transaction(type)
     assign_id
     add_to_transactions
   end
@@ -31,14 +30,5 @@ class Transaction
     @@id += 1
   end
 
-  def type_of_transaction(type)
-    if type == "purchase"
-      @product.decrement_stock_by_one
-    elsif type == "return"
-      @product.increment_stock_by_one
-    else
-      raise TransactionTypeError, "'#{type}' is not a valid transaction type"
-    end
-  end
 
 end

@@ -1,5 +1,6 @@
 class Product
-  attr_reader :title, :price, :stock
+  attr_reader :title, :price
+  attr_accessor :stock
 
   @@products = []
 
@@ -30,14 +31,6 @@ class Product
       products_in_stock.push(product) if product.in_stock?
     end
     return products_in_stock
-  end
-
-  def decrement_stock_by_one
-    @stock -= 1
-  end
-
-  def increment_stock_by_one
-    @stock += 1
   end
 
   private

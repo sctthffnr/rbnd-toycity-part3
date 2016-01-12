@@ -44,7 +44,7 @@ walter.name # Should return "Walter Latimer"
 
 # TRANSACTIONS
 
-transaction = Transaction.new(walter, nanoblock, "purchase")
+transaction = Transaction.new(walter, nanoblock)
 
 transaction.id # Should return 1
 transaction.product == nanoblock # Should return true
