@@ -1,0 +1,14 @@
+In total, I figure that I spent three to four hours on this project. I tried to work on it no more than an hour a day, both so that I could
+get daily practice and so that I could have a day to mentally process the project before working on it again.
+
+The part that felt most rewarding occurred while finishing the last set of specs. By this time, I had a pretty good idea of what I was
+supposed to be doing, and that part felt very easy. In contrast, I had to do a lot of thinking to get the first part of the spec done.
+
+I added two features. The first feature is a method to the Customer class to return an item. I found this tricky to implement because
+I had to reference two other classes in order for it to work. I also had to consider error cases, such as if the customer did not
+have the item in the first place. The other feature that I added was to allow searching a transaction via either a customer or a
+product. In contrast to the first feature, this was an easy feature to code.
+
+I find that the most difficult part of coding is starting the project. Once I get a few ideas in place that are working, I feel much more
+comfortable. I am also curious to learn more about Ruby. I feel that I have a pretty good grasp of a core set of tools, but I would like to
+know more about advanced features. 
