@@ -19,6 +19,22 @@ class Transaction
     @@transactions[id - 1]
   end
 
+  def self.find_by_customer(customer)
+    transactions = []
+    @@transactions.each do |transaction|
+      transactions.push(transaction) if transaction.customer == customer
+    end
+    return transactions
+  end
+
+  def self.find_by_product(product)
+    transactions = []
+    @@transactions.each do |transaction|
+      transactions.push(transaction) if transaction.product == product
+    end
+    return transactions
+  end
+
   private
 
   def add_to_transactions
@@ -30,5 +46,12 @@ class Transaction
     @@id += 1
   end
 
+  def self.search_transactions(key, value)
+    transactions = []
+    @@transactions.each do |transaction|
+      transactions.push(transaction) if transaction.key == value
+    end
+    return transactions
+  end
 
 end
