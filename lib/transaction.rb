@@ -9,6 +9,7 @@ class Transaction
     @product = product
     assign_id
     add_to_transactions
+    product.stock -= 1
   end
 
   def self.all
@@ -20,19 +21,11 @@ class Transaction
   end
 
   def self.find_by_customer(customer)
-    transactions = []
-    @@transactions.each do |transaction|
-      transactions.push(transaction) if transaction.customer == customer
-    end
-    return transactions
+    search_transactions(customer)
   end
 
   def self.find_by_product(product)
-    transactions = []
-    @@transactions.each do |transaction|
-      transactions.push(transaction) if transaction.product == product
-    end
-    return transactions
+    search_transactions(product)
   end
 
   private
@@ -46,10 +39,14 @@ class Transaction
     @@id += 1
   end
 
-  def self.search_transactions(key, value)
+  def self.search_transactions(key)
     transactions = []
     @@transactions.each do |transaction|
-      transactions.push(transaction) if transaction.key == value
+      if transaction.customer.name == key
+        transactions.push(transaction)
+      elsif transaction.product.title == key
+        transactions.push(transaction)
+      end
     end
     return transactions
   end

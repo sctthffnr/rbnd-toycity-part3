@@ -21,9 +21,8 @@ class Customer
 
   def purchase(product)
     raise OutOfStockError, "'#{product.title}' is out of stock." if product.stock == 0
-    transaction = Transaction.new(self, product)
-    product.stock -= 1
     @products_purchased.push(product)
+    Transaction.new(self, product)
   end
 
   def return(product)
