@@ -22,7 +22,7 @@ class Product
   end
 
   def in_stock?
-    self.stock > 0 ? true : false
+    stock > 0 ? true : false
   end
 
   def self.in_stock
@@ -30,16 +30,17 @@ class Product
     @@products.each do |product|
       products_in_stock.push(product) if product.in_stock?
     end
-    return products_in_stock
+    products_in_stock
   end
 
   private
 
   def add_to_products
     @@products.each do |product|
-      raise DuplicateProductError, "#{self.title}' already exists." if product.title == self.title
+      if product.title == title
+        fail DuplicateProductError, "#{title}' already exists."
+      end
     end
     @@products.push(self)
   end
-
 end

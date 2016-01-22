@@ -28,6 +28,18 @@ class Transaction
     search_transactions(product)
   end
 
+  def self.search_transactions(key)
+    transactions = []
+    @@transactions.each do |transaction|
+      if transaction.customer.name == key
+        transactions.push(transaction)
+      elsif transaction.product.title == key
+        transactions.push(transaction)
+      end
+    end
+    transactions
+  end
+
   private
 
   def add_to_transactions
@@ -38,17 +50,4 @@ class Transaction
     @id = @@id
     @@id += 1
   end
-
-  def self.search_transactions(key)
-    transactions = []
-    @@transactions.each do |transaction|
-      if transaction.customer.name == key
-        transactions.push(transaction)
-      elsif transaction.product.title == key
-        transactions.push(transaction)
-      end
-    end
-    return transactions
-  end
-
 end
